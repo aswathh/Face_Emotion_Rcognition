@@ -129,17 +129,6 @@ video.release()
 cv.destroyAllWindows()
 ```
 
-## Troubleshooting
-
-| Problem | Fix |
-| --- | --- |
-| `ModuleNotFoundError: No module named 'cv2'` | The notebook is using the wrong kernel. Select the project's `.venv` kernel and restart it. |
-| `No module named 'tf_keras'` | Install the TensorFlow backend: `uv add "deepface[tensorflow]"`. |
-| Haar cascade `!empty()` error | Load the cascade with `cv.data.haarcascades + "haarcascade_frontalface_default.xml"`, with no extra folder in the path. |
-| Duplicate boxes or text after re-running a cell | Draw on a fresh copy (`img.copy()`) or reload the image at the top of the cell. |
-| `FaceNotDetected` on a frame | Wrap `DeepFace.analyze` in `try/except ValueError`, or set `enforce_detection=False`. |
-| Blue-tinted image in Matplotlib | Convert BGR to RGB before plotting: `cv.cvtColor(img, cv.COLOR_BGR2RGB)`. |
-
 ## Notes
 
 - OpenCV loads images in **BGR** order, while Matplotlib expects **RGB**.
